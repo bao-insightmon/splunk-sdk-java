@@ -451,7 +451,8 @@ public class HttpService {
         }
         if (cn instanceof HttpsURLConnection) {
             ((HttpsURLConnection) cn).setSSLSocketFactory(sslSocketFactory);
-            ((HttpsURLConnection) cn).setHostnameVerifier(HOSTNAME_VERIFIER);
+//            ((HttpsURLConnection) cn).setHostnameVerifier(HOSTNAME_VERIFIER);
+            ((HttpsURLConnection) cn).setHostnameVerifier((hostname, session) -> true);
         }
         cn.setUseCaches(false);
         cn.setAllowUserInteraction(false);
